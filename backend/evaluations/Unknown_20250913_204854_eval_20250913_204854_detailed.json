@@ -1,0 +1,92 @@
+{
+  "evaluation_id": "eval_20250913_204854",
+  "candidate_name": "Unknown",
+  "target_role": "Unknown",
+  "timestamp": "2025-09-13T20:48:54.670552",
+  "overall_score": 2.4,
+  "overall_rating": "needs_improvement",
+  "detailed_scores": {
+    "technical_skills": {
+      "score": 3,
+      "rating": "satisfactory",
+      "weight": 0.4,
+      "weighted_score": 1.2000000000000002
+    },
+    "communication": {
+      "score": 2,
+      "rating": "needs_improvement",
+      "weight": 0.25,
+      "weighted_score": 0.5
+    },
+    "problem_approach": {
+      "score": 2,
+      "rating": "needs_improvement",
+      "weight": 0.2,
+      "weighted_score": 0.4
+    },
+    "collaboration": {
+      "score": 2,
+      "rating": "needs_improvement",
+      "weight": 0.15,
+      "weighted_score": 0.3
+    }
+  },
+  "analysis": {
+    "technical_skills": {
+      "strengths": [
+        "Analysis available in text format"
+      ],
+      "areas_for_improvement": [],
+      "examples": []
+    },
+    "communication": {
+      "strengths": [],
+      "areas_for_improvement": [],
+      "examples": []
+    },
+    "problem_approach": {
+      "strengths": [],
+      "areas_for_improvement": [],
+      "examples": []
+    },
+    "collaboration": {
+      "strengths": [],
+      "areas_for_improvement": [],
+      "examples": []
+    },
+    "raw_analysis": "Here's the analysis of the candidate's performance in the interview conversation:\n\n```json\n{\n    \"technical_skills\": {\n        \"strengths\": [\n            \"Demonstrated knowledge of graph theory and topological sorting\",\n            \"Implemented a correct solution for the Course Schedule II problem\",\n            \"Showed persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem\"\n        ],\n        \"areas_for_improvement\": [\n            \"Lack of clear explanation of the problem-solving approach\",\n            \"Insufficient consideration of edge cases in the Course Schedule II problem\",\n            \"Inefficient coding style (e.g., using `auto &e` without explanation)\"\n        ],\n        \"examples\": [\n            \"The candidate's solution to the Course Schedule II problem used topological sorting with a clever twist to handle dependencies.\",\n            \"The candidate's persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem demonstrated their dedication to finding the optimal solution.\"\n        ]\n    },\n    \"communication\": {\n        \"strengths\": [\n            \"Clear articulation of the problem-solving approach\",\n            \"Professional behavior and courtesy during the interview\"\n        ],\n        \"areas_for_improvement\": [\n            \"Lack of clear explanation of the problem-solving approach\",\n            \"Insufficient clarification of the solution's time and space complexity\"\n        ],\n        \"examples\": [\n            \"The candidate's response to the problem was clear and concise, but lacked explanation of the problem-solving approach.\",\n            \"The candidate did not ask clarifying questions during the interview.\"\n        ]\n    },\n    \"problem_approach\": {\n        \"strengths\": [\n            \"Demonstrated systematic thinking in solving the Course Schedule II problem\",\n            \"Showed consideration of dependencies in the Course Schedule II problem\"\n        ],\n        \"areas_for_improvement\": [\n            \"Insufficient consideration of edge cases in the Course Schedule II problem\",\n            \"Inefficient coding style (e.g., using `auto &e` without explanation)\"\n        ],\n        \"examples\": [\n            \"The candidate's solution to the Course Schedule II problem used topological sorting with a clever twist to handle dependencies.\",\n            \"The candidate's persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem demonstrated their dedication to finding the optimal solution.\"\n        ]\n    },\n    \"collaboration\": {\n        \"strengths\": [\n            \"Professional behavior and courtesy during the interview\",\n            \"Adaptability in exploring alternative solutions to the Binary Tree Maximum Path Sum problem\"\n        ],\n        \"areas_for_improvement\": [\n            \"Lack of willingness to ask clarifying questions during the interview\",\n            \"Insufficient consideration of edge cases in the Course Schedule II problem\"\n        ],\n        \"examples\": [\n            \"The candidate did not ask clarifying questions during the interview.\",\n            \"The candidate's persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem demonstrated their adaptability.\"\n        ]\n    },\n    \"notable_moments\": [\n        \"The candidate's solution to the Course Schedule II problem used topological sorting with a clever twist to handle dependencies.\",\n        \"The candidate's persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem demonstrated their dedication to finding the optimal solution.\"\n    ],\n    \"red_flags\": [\n        \"Lack of clear explanation of the problem-solving approach\",\n        \"Insufficient consideration of edge cases in the Course Schedule II problem\",\n        \"Inefficient coding style (e.g., using `auto &e` without explanation)\"\n    ],\n    \"positive_highlights\": [\n        \"Professional behavior and courtesy during the interview\",\n        \"Adaptability in exploring alternative solutions to the Binary Tree Maximum Path Sum problem\",\n        \"Persistence in exploring alternative solutions to the Binary Tree Maximum Path Sum problem\"\n    ]\n}\n```"
+  },
+  "assessment": "The candidate's performance was below expectations with an overall score of 2.4/5. \n            Significant improvement would be needed in key areas before they would be ready for this role.\n\nKey strengths observed: Analysis available in text format",
+  "recommendations": {
+    "hiring_decision": "Borderline - Consider additional interviews or specific role fit",
+    "next_steps": [
+      "Provide constructive feedback",
+      "Suggest areas for skill development",
+      "Keep candidate in pipeline for future opportunities"
+    ],
+    "development_areas": [],
+    "follow_up_questions": []
+  },
+  "interview_metadata": {
+    "duration_minutes": "Unknown",
+    "questions_completed": 2,
+    "interview_stage_reached": "wrap_up",
+    "total_conversation_exchanges": 4,
+    "candidate_responses": [
+      {
+        "question": null,
+        "response": "Edit distance  solver",
+        "stage": "introduction"
+      },
+      {
+        "question": {
+          "stage": "technical",
+          "from_llm": true,
+          "context": "Edit distance  solver"
+        },
+        "response": "class Solution {public:    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {        int V = numCourses;        vector<vector<int>> adj(V);        vector<int> inDegree(V);        vector<int> res;        // Build graph        for (auto &e : prerequisites) {            int u = e[0], v = e[1];            adj[v].push_back(u); // to do u, must first do v            inDegree[u]++;        }        queue<int> q;        // Find all starting courses (in-degree 0)        for (int i = 0; i < V; i++) {            if (inDegree[i] == 0) q.push(i);        }        // BFS (Kahn’s Algorithm)        while (!q.empty()) {            int u = q.front();            res.push_back(u);            q.pop();            for (auto &v : adj[u]) {                inDegree[v]--;                if (inDegree[v] == 0) q.push(v);            }        }        return res.size() < V ? vector<int>{} : res;    }};",
+        "stage": "technical"
+      }
+    ]
+  }
+}
